@@ -1,5 +1,10 @@
 #!/usr/bin/perl -w
 
+# DO NOT USE!  This needs serious work before it is ready for prime time.
+#
+# Just from a performance point of view strings can do 2 GB in 32 seconds on my desktop
+# (62.5 MB / sec) and strands can only do 635 MB in 609 seconds (1.04 MB / sec).
+
 # strands.pl by Tim Mattison (tim@mattison.org)
 # Version 0.1 - 2012-03-21
 
