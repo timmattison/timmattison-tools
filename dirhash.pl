@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl -w
 
 use Data::Dumper;
 # dirhash.pl by Tim Mattison (tim@mattison.org)
