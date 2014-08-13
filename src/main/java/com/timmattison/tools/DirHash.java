@@ -19,22 +19,24 @@ public class DirHash {
     private static String basePathName;
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        if ((args == null) || (args.length != 1)) {
-            System.out.println("Specify one, and only one, directory to hash");
+        if ((args == null) || (args.length == 0)) {
+            System.out.println("Specify the directories to hash");
             System.exit(1);
         }
 
-        basePathName = args[0];
-        basePathName = basePathName.replace("~", System.getProperty("user.home"));
+        for(String argument : args) {
+            basePathName = argument;
+            basePathName = basePathName.replace("~", System.getProperty("user.home"));
 
-        File basePath = new File(basePathName);
-        basePathName = basePath.getAbsolutePath();
+            File basePath = new File(basePathName);
+            basePathName = basePath.getAbsolutePath();
 
-        byte[] hash = hash(basePathName);
+            byte[] hash = hash(basePathName);
 
-        String hexString = new String(Hex.encodeHex(hash));
+            String hexString = new String(Hex.encodeHex(hash));
 
-        System.out.println(hexString + " " + basePathName);
+            System.out.println(hexString + " " + basePathName);
+        }
     }
 
     private static byte[] hash(String filename) throws NoSuchAlgorithmException, IOException {
